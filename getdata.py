@@ -6,7 +6,7 @@ except ImportError:
     import json
 import random
 import sys
-from time import time
+import time
 
 
 DATA_FILENAME = 'data.json'
@@ -40,11 +40,12 @@ def time_word_typing(word):
     if the user misspells the word.
     """
 
-    #TODO: maybe give user a few ms to read word and then request them to type
-    t0 = time()
-    typed = raw_input(word + '\n')
+    print word
+    time.sleep(1)
+    t0 = time.time()
+    typed = raw_input('GO:\n')
     if typed.strip() == word:
-        return time() - t0
+        return time.time() - t0
     else:
         return None
 
