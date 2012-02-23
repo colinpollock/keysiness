@@ -40,10 +40,8 @@ def time_word_typing(word):
     if the user misspells the word.
     """
 
-    print word
-    time.sleep(1)
     t0 = time.time()
-    typed = raw_input('GO:\n')
+    typed = raw_input("\n%s\n" % (word))
     if typed.strip() == word:
         return time.time() - t0
     else:
@@ -55,6 +53,9 @@ def main(args):
     incomplete, completed = load_data()
     random.shuffle(incomplete)
     word = None
+
+    print "When you see the word, type it and hit enter..."
+    
     try:
         while incomplete:
             word = incomplete.pop() 
